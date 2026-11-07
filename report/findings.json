@@ -1,0 +1,488 @@
+{
+  "data_quality": {
+    "rows": 588101,
+    "unique_users": 588101,
+    "duplicate_user_ids": 0,
+    "users_in_both_groups": 0,
+    "missing_values": 0,
+    "unexpected_groups": [],
+    "converted_values": [
+      0,
+      1
+    ],
+    "total_ads_min": 1,
+    "total_ads_p99": 202.0,
+    "total_ads_max": 2065,
+    "hours_range": [
+      0,
+      23
+    ],
+    "days": [
+      "Friday",
+      "Monday",
+      "Saturday",
+      "Sunday",
+      "Thursday",
+      "Tuesday",
+      "Wednesday"
+    ]
+  },
+  "split": {
+    "ad": 564577,
+    "psa": 23524
+  },
+  "split_share_ad": 0.960000068015528,
+  "balance": [
+    {
+      "check": "total_ads distribution (KS test)",
+      "statistic": 0.0397,
+      "p_value": 0.0,
+      "ad_value": 13.0,
+      "psa_value": 12.0,
+      "note": "median ads seen"
+    },
+    {
+      "check": "most_ads_day mix (chi-square)",
+      "statistic": 235.6145,
+      "p_value": 0.0,
+      "ad_value": NaN,
+      "psa_value": NaN,
+      "note": "7 days"
+    },
+    {
+      "check": "most_ads_hour mix (chi-square)",
+      "statistic": 192.2917,
+      "p_value": 0.0,
+      "ad_value": NaN,
+      "psa_value": NaN,
+      "note": "24 hours"
+    }
+  ],
+  "day_mix_max_gap_pp": 2.5936525931237298,
+  "day_mix": [
+    {
+      "most_ads_day": "Monday",
+      "ad": 0.148,
+      "psa": 0.1489,
+      "diff_pp": -0.0845
+    },
+    {
+      "most_ads_day": "Tuesday",
+      "ad": 0.1321,
+      "psa": 0.1236,
+      "diff_pp": 0.8509
+    },
+    {
+      "most_ads_day": "Wednesday",
+      "ad": 0.1371,
+      "psa": 0.1484,
+      "diff_pp": -1.1233
+    },
+    {
+      "most_ads_day": "Thursday",
+      "ad": 0.1401,
+      "psa": 0.166,
+      "diff_pp": -2.5937
+    },
+    {
+      "most_ads_day": "Friday",
+      "ad": 0.1573,
+      "psa": 0.1617,
+      "diff_pp": -0.437
+    },
+    {
+      "most_ads_day": "Saturday",
+      "ad": 0.1396,
+      "psa": 0.1215,
+      "diff_pp": 1.8084
+    },
+    {
+      "most_ads_day": "Sunday",
+      "ad": 0.1458,
+      "psa": 0.13,
+      "diff_pp": 1.5792
+    }
+  ],
+  "hour_mix_max_gap_pp": 1.1681475239367938,
+  "main": {
+    "users_ad": 564577.0,
+    "users_psa": 23524.0,
+    "cr_ad": 0.025546559636683747,
+    "cr_psa": 0.01785410644448223,
+    "abs_lift_pp": 0.7692453192201517,
+    "rel_lift": 0.4308506402222583,
+    "ci_low_pp": 0.5873422353060636,
+    "ci_high_pp": 0.9360028811460754,
+    "p_value": 1.7052807161559727e-13
+  },
+  "main_chi2_p": 1.9989623063390075e-13,
+  "incremental_conversions": 4342.982145893556,
+  "incremental_conversions_ci": [
+    3315.999171823915,
+    5284.456986288078
+  ],
+  "rel_lift_bootstrap_ci": [
+    0.3074286212033438,
+    0.5785150800260243
+  ],
+  "adjusted_odds_ratio": 1.47735304773328,
+  "adjusted_odds_ratio_ci": [
+    1.3348544153395179,
+    1.6350637212311108
+  ],
+  "adjusted_p_value": 4.664527791414612e-14,
+  "unadjusted_odds_ratio": 1.4421459480522953,
+  "post_stratified_abs_lift_pp": 0.7646018411318398,
+  "post_stratified_cr_psa": 0.01790054122536535,
+  "achieved_power": 0.9999999990438161,
+  "mde_relative": 0.14295561441630822,
+  "mde_abs_pp": 0.2552344756625125,
+  "sample_needed_equal_split_total": 11175.64517581862,
+  "sample_needed_actual_split_total": 72758.22517573768,
+  "sample_size_plan": [
+    {
+      "relative_lift": 0.05,
+      "users_per_group_50_50": 353833
+    },
+    {
+      "relative_lift": 0.1,
+      "users_per_group_50_50": 90537
+    },
+    {
+      "relative_lift": 0.2,
+      "users_per_group_50_50": 23656
+    },
+    {
+      "relative_lift": 0.3,
+      "users_per_group_50_50": 10958
+    },
+    {
+      "relative_lift": 0.5,
+      "users_per_group_50_50": 4256
+    }
+  ],
+  "segments": [
+    {
+      "segment": "Monday",
+      "users_ad": 83571.0,
+      "users_psa": 3502.0,
+      "cr_ad": 0.03324,
+      "cr_psa": 0.02256,
+      "abs_lift_pp": 1.06827,
+      "rel_lift": 0.47355,
+      "ci_low_pp": 0.50875,
+      "ci_high_pp": 1.52724,
+      "p_value": 0.00051,
+      "dimension": "most_ads_day",
+      "p_value_holm": 0.00559,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "Tuesday",
+      "users_ad": 74572.0,
+      "users_psa": 2907.0,
+      "cr_ad": 0.03044,
+      "cr_psa": 0.01445,
+      "abs_lift_pp": 1.59925,
+      "rel_lift": 1.10691,
+      "ci_low_pp": 1.08262,
+      "ci_high_pp": 1.99394,
+      "p_value": 0.0,
+      "dimension": "most_ads_day",
+      "p_value_holm": 1e-05,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "Wednesday",
+      "users_ad": 77418.0,
+      "users_psa": 3490.0,
+      "cr_ad": 0.02536,
+      "cr_psa": 0.01576,
+      "abs_lift_pp": 0.95965,
+      "rel_lift": 0.60894,
+      "ci_low_pp": 0.47768,
+      "ci_high_pp": 1.34001,
+      "p_value": 0.00038,
+      "dimension": "most_ads_day",
+      "p_value_holm": 0.00452,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "Thursday",
+      "users_ad": 79077.0,
+      "users_psa": 3905.0,
+      "cr_ad": 0.02164,
+      "cr_psa": 0.02023,
+      "abs_lift_pp": 0.14067,
+      "rel_lift": 0.06953,
+      "ci_low_pp": -0.36025,
+      "ci_high_pp": 0.55073,
+      "p_value": 0.55475,
+      "dimension": "most_ads_day",
+      "p_value_holm": 1.0,
+      "significant_raw": false,
+      "significant_holm": false
+    },
+    {
+      "segment": "Friday",
+      "users_ad": 88805.0,
+      "users_psa": 3803.0,
+      "cr_ad": 0.02246,
+      "cr_psa": 0.0163,
+      "abs_lift_pp": 0.6162,
+      "rel_lift": 0.37797,
+      "ci_low_pp": 0.15224,
+      "ci_high_pp": 0.98627,
+      "p_value": 0.01157,
+      "dimension": "most_ads_day",
+      "p_value_holm": 0.06941,
+      "significant_raw": true,
+      "significant_holm": false
+    },
+    {
+      "segment": "Saturday",
+      "users_ad": 78802.0,
+      "users_psa": 2858.0,
+      "cr_ad": 0.02131,
+      "cr_psa": 0.014,
+      "abs_lift_pp": 0.73108,
+      "rel_lift": 0.52235,
+      "ci_low_pp": 0.22093,
+      "ci_high_pp": 1.11526,
+      "p_value": 0.00748,
+      "dimension": "most_ads_day",
+      "p_value_holm": 0.05594,
+      "significant_raw": true,
+      "significant_holm": false
+    },
+    {
+      "segment": "Sunday",
+      "users_ad": 82332.0,
+      "users_psa": 3059.0,
+      "cr_ad": 0.02462,
+      "cr_psa": 0.02059,
+      "abs_lift_pp": 0.40249,
+      "rel_lift": 0.19543,
+      "ci_low_pp": -0.1736,
+      "ci_high_pp": 0.86182,
+      "p_value": 0.15719,
+      "dimension": "most_ads_day",
+      "p_value_holm": 0.78593,
+      "significant_raw": false,
+      "significant_holm": false
+    },
+    {
+      "segment": "00-05",
+      "users_ad": 19102.0,
+      "users_psa": 735.0,
+      "cr_ad": 0.01345,
+      "cr_psa": 0.00136,
+      "abs_lift_pp": 1.20935,
+      "rel_lift": 8.88876,
+      "ci_low_pp": 0.5603,
+      "ci_high_pp": 1.41583,
+      "p_value": 0.00452,
+      "dimension": "hour_bucket",
+      "p_value_holm": 0.04064,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "06-11",
+      "users_ad": 136526.0,
+      "users_psa": 5727.0,
+      "cr_ad": 0.02116,
+      "cr_psa": 0.01257,
+      "abs_lift_pp": 0.85888,
+      "rel_lift": 0.68317,
+      "ci_low_pp": 0.5273,
+      "ci_high_pp": 1.12798,
+      "p_value": 1e-05,
+      "dimension": "hour_bucket",
+      "p_value_holm": 0.00011,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "12-17",
+      "users_ad": 246925.0,
+      "users_psa": 10914.0,
+      "cr_ad": 0.02767,
+      "cr_psa": 0.02016,
+      "abs_lift_pp": 0.75107,
+      "rel_lift": 0.3726,
+      "ci_low_pp": 0.46284,
+      "ci_high_pp": 1.00686,
+      "p_value": 0.0,
+      "dimension": "hour_bucket",
+      "p_value_holm": 4e-05,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "18-23",
+      "users_ad": 162024.0,
+      "users_psa": 6148.0,
+      "cr_ad": 0.02743,
+      "cr_psa": 0.02066,
+      "abs_lift_pp": 0.67771,
+      "rel_lift": 0.32807,
+      "ci_low_pp": 0.28322,
+      "ci_high_pp": 1.01427,
+      "p_value": 0.00134,
+      "dimension": "hour_bucket",
+      "p_value_holm": 0.0134,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "1-10",
+      "users_ad": 249499.0,
+      "users_psa": 11276.0,
+      "cr_ad": 0.00326,
+      "cr_psa": 0.00399,
+      "abs_lift_pp": -0.07322,
+      "rel_lift": -0.18348,
+      "ci_low_pp": -0.20941,
+      "ci_high_pp": 0.03008,
+      "p_value": 0.18413,
+      "dimension": "ads_bucket",
+      "p_value_holm": 0.78593,
+      "significant_raw": false,
+      "significant_holm": false
+    },
+    {
+      "segment": "11-25",
+      "users_ad": 163135.0,
+      "users_psa": 6112.0,
+      "cr_ad": 0.01017,
+      "cr_psa": 0.00998,
+      "abs_lift_pp": 0.01891,
+      "rel_lift": 0.01895,
+      "ci_low_pp": -0.26687,
+      "ci_high_pp": 0.24472,
+      "p_value": 0.88492,
+      "dimension": "ads_bucket",
+      "p_value_holm": 1.0,
+      "significant_raw": false,
+      "significant_holm": false
+    },
+    {
+      "segment": "26-50",
+      "users_ad": 85740.0,
+      "users_psa": 3273.0,
+      "cr_ad": 0.03542,
+      "cr_psa": 0.02658,
+      "abs_lift_pp": 0.88399,
+      "rel_lift": 0.33256,
+      "ci_low_pp": 0.26292,
+      "ci_high_pp": 1.39768,
+      "p_value": 0.00699,
+      "dimension": "ads_bucket",
+      "p_value_holm": 0.05594,
+      "significant_raw": true,
+      "significant_holm": false
+    },
+    {
+      "segment": "51-100",
+      "users_ad": 44149.0,
+      "users_psa": 1853.0,
+      "cr_ad": 0.11631,
+      "cr_psa": 0.05774,
+      "abs_lift_pp": 5.85665,
+      "rel_lift": 1.01424,
+      "ci_low_pp": 4.66304,
+      "ci_high_pp": 6.87594,
+      "p_value": 0.0,
+      "dimension": "ads_bucket",
+      "p_value_holm": 0.0,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "101-250",
+      "users_ad": 18584.0,
+      "users_psa": 864.0,
+      "cr_ad": 0.17354,
+      "cr_psa": 0.11227,
+      "abs_lift_pp": 6.12679,
+      "rel_lift": 0.54573,
+      "ci_low_pp": 3.7852,
+      "ci_high_pp": 8.13949,
+      "p_value": 0.0,
+      "dimension": "ads_bucket",
+      "p_value_holm": 4e-05,
+      "significant_raw": true,
+      "significant_holm": true
+    },
+    {
+      "segment": "250+",
+      "users_ad": 3470.0,
+      "users_psa": 146.0,
+      "cr_ad": 0.15965,
+      "cr_psa": 0.15753,
+      "abs_lift_pp": 0.21199,
+      "rel_lift": 0.01346,
+      "ci_low_pp": -6.66687,
+      "ci_high_pp": 5.38755,
+      "p_value": 0.94537,
+      "dimension": "ads_bucket",
+      "p_value_holm": 1.0,
+      "significant_raw": false,
+      "significant_holm": false
+    }
+  ],
+  "segments_significant_raw": 12,
+  "segments_significant_holm": 9,
+  "user_share_by_ads_bucket": {
+    "1-10": 0.4434,
+    "11-25": 0.2878,
+    "26-50": 0.1514,
+    "51-100": 0.0782,
+    "101-250": 0.0331,
+    "250+": 0.0061
+  },
+  "conversions_share_by_ads_bucket": {
+    "1-10": 0.0578,
+    "11-25": 0.1159,
+    "26-50": 0.2105,
+    "51-100": 0.3532,
+    "101-250": 0.2238,
+    "250+": 0.0389
+  },
+  "conversion_by_exposure": [
+    {
+      "ads_bucket": "1-10",
+      "ad": 0.00326,
+      "psa": 0.00399
+    },
+    {
+      "ads_bucket": "11-25",
+      "ad": 0.01017,
+      "psa": 0.00998
+    },
+    {
+      "ads_bucket": "26-50",
+      "ad": 0.03542,
+      "psa": 0.02658
+    },
+    {
+      "ads_bucket": "51-100",
+      "ad": 0.11631,
+      "psa": 0.05774
+    },
+    {
+      "ads_bucket": "101-250",
+      "ad": 0.17354,
+      "psa": 0.11227
+    },
+    {
+      "ads_bucket": "250+",
+      "ad": 0.15965,
+      "psa": 0.15753
+    }
+  ]
+}

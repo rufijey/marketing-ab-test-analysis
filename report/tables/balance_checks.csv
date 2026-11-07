@@ -1,0 +1,4 @@
+check,statistic,p_value,ad_value,psa_value,note
+total_ads distribution (KS test),0.039695984814656415,2.34265088023433e-31,13.0,12.0,median ads seen
+most_ads_day mix (chi-square),235.61445227291117,4.849067664297987e-48,,,7 days
+most_ads_hour mix (chi-square),192.29173193613582,1.094573971081402e-28,,,24 hours
