@@ -1,0 +1,2 @@
+row_count,unique_users,duplicate_rows,users_in_both_groups,rows_with_nulls,invalid_group,invalid_converted,invalid_hour,invalid_day,total_ads_min,total_ads_p99,total_ads_max
+588101,588101,0,0,0,0,0,0,0,1,202,2065

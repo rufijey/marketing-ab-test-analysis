@@ -4,6 +4,18 @@ Did showing users an **ad** instead of a **public service announcement (PSA)** i
 
 **Data:** [Marketing A/B Testing](https://www.kaggle.com/datasets/faviovaz/marketing-ab-testing) (Kaggle). Each row is a user with their group (`ad` / `psa`), whether they converted, how many ads they saw, and the day and hour they saw the most ads.
 
+**Stack:** Google BigQuery for storage and all aggregations ([`sql/`](sql)), Python (SciPy, statsmodels) for the statistics SQL is not built for: p-values, confidence intervals, power, logistic regression, bootstrap and multiple-comparison correction.
+
+```mermaid
+flowchart LR
+    A[marketing_AB.csv.gz] -->|load_to_bigquery.py| B[(BigQuery<br>ab_test.raw_marketing_ab)]
+    B -->|sql/01-05| C[Aggregates:<br>data quality, lift,<br>day mix, segments,<br>post-stratification]
+    B -->|sql/06| D[User-level extract]
+    C --> E[Python statistics<br>analyze.py]
+    D --> E
+    E --> F[Charts, tables,<br>README findings]
+```
+
 ## Result in one paragraph
 
 Ads work. Conversion is **2.55% with ads vs. 1.79% with PSA**: **+0.77 percentage points (95% CI 0.59–0.94), +43% relative**, p < 0.001. That is about **4,300 extra conversions** in the ad group. The effect holds after adjusting for the groups' day, hour and exposure mix (odds ratio 1.48, 95% CI 1.33–1.64). It is concentrated in users who saw 26+ ads; the 73% of users who saw 25 or fewer show no measurable lift.
@@ -37,7 +49,7 @@ The data is clean, so nothing was removed.
 | Conversion, ad | 2.555% (14,423 of 564,577) |
 | Conversion, PSA | 1.785% (420 of 23,524) |
 | Absolute lift | **+0.77 pp**, 95% CI 0.59 to 0.94 (Newcombe) |
-| Relative lift | **+43%**, bootstrap 95% CI +31% to +58% |
+| Relative lift | **+43%**, bootstrap 95% CI +30% to +58% |
 | p-value | 1.7 × 10⁻¹³ (two-proportion z-test; chi-square gives the same) |
 | Extra conversions in the ad group | ≈ 4,343 (95% CI 3,316 to 5,284) |
 
@@ -98,16 +110,29 @@ Users needed **per group** (50/50 split) to detect a relative lift at this basel
 ## Project structure
 
 ```
-src/analyze.py      data checks, balance checks, main test, adjusted models, power, segments, charts
-report/             charts, CSV tables, findings.json with every number used in this README
+sql/01_data_quality.sql            duplicates, users in both groups, nulls, invalid values, ranges
+sql/02_group_result.sql            conversion by group, lift, z statistic, Wald CI, extra conversions
+sql/03_day_mix.sql                 balance check: day-of-week share per group (window functions)
+sql/04_segments.sql                lift by day, hour bucket and exposure bucket (CASE buckets, UNION ALL)
+sql/05_post_stratified_lift.sql    lift inside day x exposure cells, weighted to the ad group's mix
+sql/06_users.sql                   user-level extract for the tests that need individual rows
+src/load_to_bigquery.py            creates the dataset and loads the raw file into BigQuery
+src/bq.py                          BigQuery client and run_sql() helper
+src/analyze.py                     p-values, Newcombe CIs, balance tests, regression, bootstrap, power, Holm, charts
+report/                            charts, CSV tables, findings.json with every number used in this README
 ```
 
 ## How to run
+
+1. Create a Google Cloud project with BigQuery (the free [BigQuery sandbox](https://cloud.google.com/bigquery/docs/sandbox) is enough) and a service account with the roles **BigQuery Data Editor** and **BigQuery Job User**. Save its JSON key as `credentials.json` in the project root (it is git-ignored), or set `GOOGLE_APPLICATION_CREDENTIALS`.
+2. Set your project: `export BQ_PROJECT=your-project-id` (optional: `BQ_DATASET`, default `ab_test`; `BQ_LOCATION`, default `US`).
+3. Run:
 
 ```bash
 python -m venv .venv
 .venv/Scripts/pip install -r requirements.txt   # .venv/bin/pip on macOS/Linux
 curl -L -o data/marketing_AB.csv.gz https://github.com/jszymon/uplift_sklearn_data/releases/download/marketing_AB/marketing_AB.csv.gz
+.venv/Scripts/python src/load_to_bigquery.py
 .venv/Scripts/python src/analyze.py
 ```
 
